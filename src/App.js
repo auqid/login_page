@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 import cat from "./cat.png";
-const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
 const passRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -9,20 +10,29 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const emailValidation = () => {
-    if (emailRegex.test(email) && passRegex.test(password)) {
-      setMessage("valid");
+  const inputValidation = function () {
+    let emailValidation = emailRegex.test(email);
+    let passwordValidation = passRegex.test(password);
+
+    if (emailValidation && passwordValidation) {
+      setIsLoading(false);
+      setMessage("Valid");
     } else {
-      setMessage("Invalid");
+      setIsLoading(true);
+      setMessage("");
     }
   };
 
   const handleEmailOnChange = (e) => {
     setEmail(e.target.value);
+    inputValidation();
   };
+
   const handlePasswordOnChange = (e) => {
     setPassword(e.target.value);
+    inputValidation();
   };
 
   return (
@@ -48,9 +58,7 @@ function App() {
         />
         <h5>Forgot Password?</h5>
 
-        <button onClick={emailValidation} id="button">
-          Login
-        </button>
+        <button disabled={isLoading}>Login</button>
         <p className="message">{message}</p>
       </div>
     </div>
