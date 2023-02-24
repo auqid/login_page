@@ -1,27 +1,48 @@
+import React, { useState } from "react";
 import "./App.css";
-import React from "react";
-import { useState } from "react";
 
 function App() {
-  const initialValues = { email: "", password: "" };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
+  const emailValidation = () => {
+    const regEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const PassregEX =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (regEX.test(email) && PassregEX.test(password)) {
+      setMessage("Email is Valid");
+    } else {
+      setMessage("Invalid");
+    }
+  };
+
+  const handleOnChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePOnChange = (e) => {
+    setPassword(e.target.value);
+  };
   return (
-    <div className="container">
-      <form>
-        <h1>Login Form</h1>
-        <div className="ui_divider"></div>
-        <div className="ui_form">
-          <div className="field">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Email" />
-          </div>
-          <div className="field">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Password" />
-          </div>
-          <button className="login_button">Login</button>
-        </div>
-      </form>
+    <div className="app">
+      <div>
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={handleOnChange}
+        />
+        <button onClick={emailValidation}>Check</button>
+        <p>{message}</p>
+      </div>
+      <label>Password</label>
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={handlePOnChange}
+      />
     </div>
   );
 }
