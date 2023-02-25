@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import cat from "./cat.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
 const passRegex =
@@ -64,11 +64,16 @@ function Login() {
           onChange={handlePasswordOnChange}
           className="input"
         />
-        <h5>Forgot Password?</h5>
+        <a href="https://google.com" id="a1">
+          Forgot Password?
+        </a>
 
         <button disabled={isLoading} onClick={() => navToPage()}>
           Login
         </button>
+        <a href="https://google.com" id="a2">
+          Sign Up
+        </a>
         <p className="message">{message}</p>
       </div>
     </div>
