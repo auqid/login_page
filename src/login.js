@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import "./Login.css";
 import cat from "./cat.png";
+import { useNavigate } from "react-router-dom";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
 const passRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 function Login() {
+  const navigate = useNavigate();
+  const navToPage = () => {
+    if (isLoading === false) {
+      navigate("dashboard");
+    }
+  };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const inputValidation = function () {
     let emailValidation = emailRegex.test(email);
@@ -58,7 +66,9 @@ function Login() {
         />
         <h5>Forgot Password?</h5>
 
-        <button disabled={isLoading}>Login</button>
+        <button disabled={isLoading} onClick={() => navToPage()}>
+          Login
+        </button>
         <p className="message">{message}</p>
       </div>
     </div>
