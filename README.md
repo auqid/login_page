@@ -1,4 +1,4 @@
-##The Login screen includes the following elements:
+### `The Login screen includes the following elements:`
 1. A logo or header image (use any image from Google)
 2. A form with fields for email and password
 3. Validation steps for the email and password fields:
