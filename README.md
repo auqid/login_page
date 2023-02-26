@@ -10,9 +10,10 @@ correct format (e.g. example@domain.com).
 6. Upon clicking on the login button, navigate the user to Dashboard Screen (No need to authenticate user for now).
 7. A "Forgot password" link that redirects the user to a page where they can reset their password (points to any url for demo purpose)
 8. A "Sign up" link that redirects the user to a page where they can create a new account (points to any url for demo purpose)
+
+
 This project was bootstrapped with [Create React App]
 ## Available Scripts
-
 In the project directory, you can run:
 ### `npm start`
 Runs the app in the development mode.\
