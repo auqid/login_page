@@ -33,11 +33,6 @@ button {
   cursor: pointer;
   border: 1px solid blue;
 }
-button:hover {
-  background: white;
-  color: black;
-  background-color: orange;
-}
 
 .label {
   font-size: 19px;
@@ -60,7 +55,7 @@ button:hover {
 }
 
 #a1 {
-  margin: 5px 0 0 150px;
+  margin: 0 0 0 150px;
   color: black;
   font-size: 12px;
   outline: black;
