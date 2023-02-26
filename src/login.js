@@ -50,7 +50,7 @@ function Login() {
         <label className="label">Email</label>
         <input
           type="email"
-          placeholder="Type your Email"
+          placeholder=""
           value={email}
           onChange={handleEmailOnChange}
           className="input"
@@ -59,11 +59,12 @@ function Login() {
         <label className="label">Password</label>
         <input
           type="password"
-          placeholder="Type your Password"
+          placeholder=""
           value={password}
           onChange={handlePasswordOnChange}
           className="input"
         />
+        <p className="message">{message}</p>
         <a href="https://google.com" id="a1">
           Forgot Password?
         </a>
@@ -74,7 +75,6 @@ function Login() {
         <a href="https://google.com" id="a2">
           Sign Up
         </a>
-        <p className="message">{message}</p>
       </div>
     </div>
   );
