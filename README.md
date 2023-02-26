@@ -2,9 +2,9 @@
 1. A logo or header image (use any image from Google)
 2. A form with fields for email and password
 3. Validation steps for the email and password fields:
-○ Email validation: Make sure that the email field is in the
+i. Email validation: Make sure that the email field is in the
 correct format (e.g. example@domain.com).
-○ Password validation: Make sure that the password is at least
+ii.Password validation: Make sure that the password is at least
 4 characters long and contains at least one uppercase letter,one lowercase letter, one number, and one special character.(there is some problem with the state as it updates one character after the required character)
 5. A "Login" button that is disabled until the email and password fields are valid.
 6. Upon clicking on the login button, navigate the user to Dashboard Screen (No need to authenticate user for now).
